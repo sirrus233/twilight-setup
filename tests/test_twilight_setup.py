@@ -24,24 +24,38 @@ def test_main(input_mock: MagicMock) -> None:
     input_mock.side_effect = inputs
     data = main()
     assert data[0] == PlayerData(
-        name="Emily", location="Schroeder", races=["L1z1x Mindnet", "Yssaril Tribes"]
+        name="Emily",
+        location="Schroeder",
+        races=["L1z1x Mindnet", "Yssaril Tribes"],
+        discarded="Yin Brotherhood",
     )
     assert data[1] == PlayerData(
         name="Adam",
         location="Unaligned Magi",
         races=["Ghosts of Creuss", "Naalu Collective"],
+        discarded="Federation of Sol",
     )
     assert data[2] == PlayerData(
-        name="Alex", location="Jaynor", races=["Emirates of Hacan", "Nekro Virus"]
+        name="Alex",
+        location="Jaynor",
+        races=["Emirates of Hacan", "Nekro Virus"],
+        discarded="Xxcha Kingdoms",
     )
     assert data[3] == PlayerData(
-        name="Tara", location="Vaunt", races=["Universities of Jol-Nar", "Winnu"]
+        name="Tara",
+        location="Vaunt",
+        races=["Universities of Jol-Nar", "Winnu"],
+        discarded="Mentak Coalition",
     )
     assert data[4] == PlayerData(
-        name="Mason", location="Mage", races=["Arborec", "Sardakk N'or"]
+        name="Mason",
+        location="Mage",
+        races=["Arborec", "Sardakk N'orr"],
+        discarded="Winnu",
     )
     assert data[5] == PlayerData(
         name="Bradley",
         location="The 9 of Spades",
         races=["Embers of Muaat", "Mentak Coalition"],
+        discarded="Sardakk N'orr",
     )
