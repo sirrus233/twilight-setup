@@ -1,0 +1,7 @@
+.idea/
+.venv/
+.mypy_cache/
+*.egg-info/
+__pycache__/
+*.iml
+.coverage
