@@ -43,6 +43,24 @@ def set_system_names(player_count: int) -> List[str]:
     return systems
 
 
+def choose_race_drops(data: List[PlayerData]) -> None:
+    for player_data in data:
+        print(f"Choose race drop for {player_data.name}: ")
+        print(f"\t[0]: {player_data.races[0]}")
+        print(f"\t[1]: {player_data.races[1]}")
+        user_input = input()
+        if _validate_drop_choice(user_input):
+            discard = player_data.races.pop(int(user_input))
+            player_data.discarded = discard
+            print()
+        else:
+            raise ValueError("Invalid race selection.")
+
+
+def _validate_drop_choice(user_input: str) -> bool:
+    return user_input.isdigit() and 0 <= int(user_input) <= 1
+
+
 def display_results(data: List[PlayerData], speaker: PlayerData) -> None:
     for player_data in data:
         print(f"{player_data.name}: {player_data.location}")

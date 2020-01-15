@@ -12,6 +12,8 @@ def main() -> List[app.PlayerData]:
     data = app.initialize_player_data(player_count)
     app.deal_systems(data, players, systems)
     app.deal_initial_races(data)
+    interface.choose_race_drops(data)
+    app.deal_second_round_races(data)
     speaker = app.choose_speaker(data)
     interface.display_results(data, speaker)
     return data

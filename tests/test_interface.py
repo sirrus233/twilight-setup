@@ -61,6 +61,29 @@ def test_set_system_names(input_mock: MagicMock) -> None:
     assert interface.set_system_names(player_count) == system_names
 
 
+@patch("builtins.input")
+def test_choose_race_drops(input_mock: MagicMock) -> None:
+    failing_inputs = ["NaN", "-1", "-1.01", "1.01", "2"]
+    passing_inputs = ["0", "1"]
+
+    input_mock.side_effect = failing_inputs
+    for _ in failing_inputs:
+        with raises(ValueError):
+            player_data = PlayerData(name="test", races=["a", "b"])
+            interface.choose_race_drops([player_data])
+
+    input_mock.side_effect = passing_inputs
+    player_data = PlayerData(name="test", races=["a", "b"])
+    interface.choose_race_drops([player_data])
+    assert player_data.races == ["b"]
+    assert player_data.discarded == "a"
+
+    player_data = PlayerData(name="test", races=["a", "b"])
+    interface.choose_race_drops([player_data])
+    assert player_data.races == ["a"]
+    assert player_data.discarded == "b"
+
+
 def test_display_results() -> None:
     player_data = PlayerData(name="a", location="b", races=["c", "d"])
     interface.display_results([player_data] * 6, player_data)
