@@ -7,7 +7,8 @@ from twilight_setup.main import main
 
 @patch("builtins.input")
 def test_main(input_mock: MagicMock) -> None:
-    # Test results based on manual initial run of the program
+    # Test results based loosely on manual initial run of the program
+    # Original home systems have been changed since a refactor of deal_systems()
     seed = ["peace cats space turtles"]
     player_count = ["6"]
     players = ["Adam", "Alex", "Bradley", "Emily", "Mason", "Tara"]
@@ -24,26 +25,26 @@ def test_main(input_mock: MagicMock) -> None:
     input_mock.side_effect = inputs
     data = main()
     assert data[0] == PlayerData(
-        name="Emily",
-        location="Schroeder",
+        name="Adam",
+        location="Vaunt",
         races=["L1z1x Mindnet", "Yssaril Tribes"],
         discarded="Yin Brotherhood",
     )
     assert data[1] == PlayerData(
-        name="Adam",
-        location="Unaligned Magi",
+        name="Alex",
+        location="Schroeder",
         races=["Ghosts of Creuss", "Naalu Collective"],
         discarded="Federation of Sol",
     )
     assert data[2] == PlayerData(
-        name="Alex",
-        location="Jaynor",
+        name="Bradley",
+        location="Unaligned Magi",
         races=["Emirates of Hacan", "Nekro Virus"],
         discarded="Xxcha Kingdoms",
     )
     assert data[3] == PlayerData(
-        name="Tara",
-        location="Vaunt",
+        name="Emily",
+        location="The 9 of Spades",
         races=["Universities of Jol-Nar", "Winnu"],
         discarded="Mentak Coalition",
     )
@@ -54,8 +55,8 @@ def test_main(input_mock: MagicMock) -> None:
         discarded="Winnu",
     )
     assert data[5] == PlayerData(
-        name="Bradley",
-        location="The 9 of Spades",
+        name="Tara",
+        location="Jaynor",
         races=["Embers of Muaat", "Mentak Coalition"],
         discarded="Sardakk N'orr",
     )

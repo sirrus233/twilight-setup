@@ -1,3 +1,4 @@
+"""Small data module holding static information about playable races."""
 from typing import List
 
 RACES = (
@@ -22,7 +23,8 @@ RACES = (
 
 
 def get_races() -> List[str]:
-    """
-    Provides a mutable copy of the constant race list
+    """Provides a mutable copy of the constant race list
+
+    :return: Race list
     """
     return list(RACES)
