@@ -42,7 +42,7 @@ def test_deal_second_round_races(get_races_mock: MagicMock) -> None:
     assert data[1].races == ["c", "b"]
 
 
-def choose_speaker() -> None:
+def test_choose_speaker() -> None:
     random.seed("test")
     data = app.initialize_player_data(6)
     speaker = app.choose_speaker(data)
