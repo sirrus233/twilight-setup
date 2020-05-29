@@ -13,6 +13,9 @@ pytest-cov = "^2.9.0"
 pre-commit = "^2.4.0"
 pylint = "^2.5.2"
 
+[tool.poetry.scripts]
+twilight-setup = "twilight_setup.main:main"
+
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
